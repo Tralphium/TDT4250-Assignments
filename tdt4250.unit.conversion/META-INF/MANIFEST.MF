@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Conversion
+Bundle-SymbolicName: tdt4250.unit.conversion
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: tdt4250.unit.conversion.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: tdt4250.unit.conversion
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy

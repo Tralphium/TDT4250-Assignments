@@ -25,7 +25,7 @@ import tdt4250.converter.api.UnitConversion;
 import tdt4250.converter.api.UnitConversionResult;
 
 @Component
-@HttpWhiteboardServletPattern("/converter/*")
+@HttpWhiteboardServletPattern("/convert/*")
 
 public class ConverterServlet extends HttpServlet implements Servlet{
 	
@@ -69,12 +69,12 @@ public class ConverterServlet extends HttpServlet implements Servlet{
 		if (segments.size() > 0 && segments.get(0).length() == 0) {
 			segments.remove(0);
 		}
-		if (segments.size() > 1) {
-			response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, "Request must contain max 1 path segment");
+		if (segments.size() > 3) {
+			response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, "Request must contain max 3 path segments");
 			return;
 		}
 		String q = request.getParameter("q");
-		UnitConversionResult result = (segments.size() == 0 ? unitConversion.convert(q) : unitConversion.convert(segments.get(0), q));
+		UnitConversionResult result = unitConversion.convert(segments.get(0), segments.get(1), segments.get(2), q);
 		logger.info("Conversion result " + (result.isSuccess() ? "succeeded" : "failed"));
 		response.setContentType("text/plain");
 		PrintWriter writer = response.getWriter();

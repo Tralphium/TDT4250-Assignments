@@ -1,32 +1,27 @@
 package tdt4250.converter.api;
 
-import java.net.URI;
-
 import org.osgi.annotation.versioning.ConsumerType;
 
 @ConsumerType
 public class UnitConversionResult {
 
+	private final String value;
+	private final Unit initialUnit;
+	private final Unit targetUnit;
+	private final String result;
 	private final boolean success;
-	private final String message;
-	private final URI link;
 	
-	public UnitConversionResult(boolean success, String message, URI link) {
-		super();
-		this.success = success;
-		this.message = message;
-		this.link = link;
+	public UnitConversionResult(String value, Unit initialUnit, String result, Unit targetUnit, boolean success) {
+		this.value = value;
+		this.initialUnit = initialUnit;
+		this.targetUnit= targetUnit;
+		this.result = result;
+		this.success= success;
 	}
 	
-	public boolean isSuccess() {
-		return success;
+	public UnitConversionResult(String value, Unit initialUnit, Unit targetUnit) {
+		this(value, initialUnit, "F", targetUnit, false);
 	}
 	
-	public String getMessage() {
-		return message;
-	}
 	
-	public URI getLink() {
-		return link;
-	}
 }

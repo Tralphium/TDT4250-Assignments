@@ -23,7 +23,7 @@ import tdt4250.converter.api.UnitConversionResult;
 
 @Component(service=UnitResource.class)
 @JaxrsResource
-@Path("unit")
+@Path("convert")
 public class UnitResource {
 	
 	@Reference(
@@ -37,16 +37,10 @@ public class UnitResource {
 	}
 	
 	@GET
+	@Path("/{initialUnit}/{value}/{targetUnit}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public UnitConversionResult convert(@QueryParam("q") String q) throws JsonProcessingException {
-		return getUnitConversion().convert(q);
-	}
-	
-	@GET
-	@Path("/{unit}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public UnitConversionResult convert(@PathParam("unit") String unit, @QueryParam("q") String q) throws JsonProcessingException {
-		return getUnitConversion().convert(unit, q);
+	public UnitConversionResult convert(@PathParam("initialUnit") String initialUnit, @PathParam("value") String value, @PathParam("targetUnit") String targetUnit, @QueryParam("q") String q) throws JsonProcessingException {
+		return getUnitConversion().convert(initialUnit, value, targetUnit, q);
 	}
 
 }

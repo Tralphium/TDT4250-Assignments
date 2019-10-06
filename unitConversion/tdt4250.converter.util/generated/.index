@@ -1,37 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.util" increment="1569767955454">
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.util" increment="1570393183083">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="tdt4250.converter.util"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" value="0.0.0.201909291439" type="Version"/>
+      <attribute name="version" value="0.0.0.201910062019" type="Version"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
-      <attribute name="bundle-version" value="0.0.0.201909291439" type="Version"/>
+      <attribute name="bundle-version" value="0.0.0.201910062019" type="Version"/>
       <attribute name="osgi.wiring.bundle" value="tdt4250.converter.util"/>
     </capability>
     <capability namespace="osgi.wiring.host">
-      <attribute name="bundle-version" value="0.0.0.201909291439" type="Version"/>
+      <attribute name="bundle-version" value="0.0.0.201910062019" type="Version"/>
       <attribute name="osgi.wiring.host" value="tdt4250.converter.util"/>
     </capability>
-    <capability namespace="osgi.service">
-      <attribute name="objectClass" value="tdt4250.converter.api.Unit" type="List&lt;String&gt;"/>
-    </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="6026" type="Long"/>
+      <attribute name="size" value="4023" type="Long"/>
       <attribute name="url" value="generated/tdt4250.converter.util.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="241F981C7FB738F8B6F57B3879B75788B925F5E53E153057C3EA4CE2AA9E7382"/>
+      <attribute name="osgi.content" value="AF7DEA9C553BA2B3A16DD600BA6686CFD7721311AB9D11BFAEBF361E058ADFCA"/>
     </capability>
     <capability namespace="bndtools.workspace">
-      <attribute name="bndtools.workspace" value="file:/C:/Users/Alexander/software-design-dev"/>
+      <attribute name="bndtools.workspace" value="file:/C:/Users/Alexander/unit-conversion-ws"/>
       <attribute name="project.path" value="/tdt4250.converter.util"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(&amp;(version&gt;=1.9.0)(!(version&gt;=2.0.0))))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=tdt4250.converter.api)(&amp;(version&gt;=1.0.0)(!(version&gt;=1.1.0))))"/>
+      <directive name="filter" value="(&amp;(osgi.wiring.package=tdt4250.converter.api)(&amp;(version&gt;=1.0.0)(!(version&gt;=2.0.0))))"/>
     </requirement>
     <requirement namespace="osgi.extender">
       <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>

@@ -1,33 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.rest" increment="1569767634069">
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.rest" increment="1570361550799">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="tdt4250.converter.rest"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" value="0.0.0.201909291433" type="Version"/>
+      <attribute name="version" value="0.0.0.201910061132" type="Version"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
-      <attribute name="bundle-version" value="0.0.0.201909291433" type="Version"/>
+      <attribute name="bundle-version" value="0.0.0.201910061132" type="Version"/>
       <attribute name="osgi.wiring.bundle" value="tdt4250.converter.rest"/>
     </capability>
     <capability namespace="osgi.wiring.host">
-      <attribute name="bundle-version" value="0.0.0.201909291433" type="Version"/>
+      <attribute name="bundle-version" value="0.0.0.201910061132" type="Version"/>
       <attribute name="osgi.wiring.host" value="tdt4250.converter.rest"/>
     </capability>
     <capability namespace="osgi.service">
+      <directive name="uses" value="javax.ws.rs.ext"/>
       <attribute name="objectClass" value="javax.ws.rs.ext.MessageBodyWriter" type="List&lt;String&gt;"/>
     </capability>
     <capability namespace="osgi.service">
+      <directive name="uses" value="tdt4250.converter.rest"/>
       <attribute name="objectClass" value="tdt4250.converter.rest.UnitResource" type="List&lt;String&gt;"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="9511" type="Long"/>
+      <attribute name="size" value="9580" type="Long"/>
       <attribute name="url" value="generated/tdt4250.converter.rest.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="70F8B43231DD3E7ECCAFD418FA780C4944C2678FCA5E712FF6E984A799976070"/>
+      <attribute name="osgi.content" value="DEE2BE32ABDFF4F68CB2A1A4AD643CF8D09D8DDF2CB50672DFD95C1016740CAC"/>
     </capability>
     <capability namespace="bndtools.workspace">
-      <attribute name="bndtools.workspace" value="file:/C:/Users/Alexander/software-design-dev"/>
+      <attribute name="bndtools.workspace" value="file:/C:/Users/Alexander/unit-conversion-ws"/>
       <attribute name="project.path" value="/tdt4250.converter.rest"/>
     </capability>
     <requirement namespace="osgi.wiring.package">

@@ -8,30 +8,20 @@ import java.util.stream.Collectors;
 
 public class UnitConversion {
 
-	private static final String DEFAULT_MESSAGE = "Sorry, unsupported unit";
-	private Collection<Unit> units = new ArrayList<>();
+	private static final String DEFAULT_MESSAGE = "Sorry, unit(s) are not supported ";
 	
-	public void addUnit(Unit unit) {
-		units.add(unit);
-	}
 	
-	public void removeUnit(Unit unit) {
-		units.remove(unit);
-	}
-	
-	public UnitConversion(Unit...units ) {
-		this.units.addAll(Arrays.asList(units));
-	}
-	
-	private UnitConversionResult convert(String conversionValue, Iterable<Unit> units) {
+	public UnitConversionResult convert(String initialUnit, String value, String targetUnit, String q) {
 		StringBuilder messages = new StringBuilder();
 		URI link = null;
 		boolean success = false;
+		Unit u = 
+		
 		for (Unit u : units) {
-			UnitConversionResult result = u.convert(conversionValue);
+			UnitConversionResult result = u.convert(value);
 			if (result.isSuccess()) {
 				messages.append(result.getMessage());
-				messages.append("(" + u.getUnitName() + ")\n");
+				messages.append("(" + u.getUnit() + ")\n");
 				success = true;
 				if (link == null) {
 					link = result.getLink();
@@ -43,13 +33,4 @@ public class UnitConversion {
 		}
 		return new UnitConversionResult(success, messages.toString(), link);
 	}
-	
-	public UnitConversionResult convert(String unitKey, String conversionValue) {
-		return convert(conversionValue, this.units.stream().filter(unit -> unit.getUnitName().equals(unitKey)).collect(Collectors.toList()));
-	}
-	
-	public UnitConversionResult convert(String conversionValue) {
-		return convert(conversionValue, units);
-	}
-	
 }

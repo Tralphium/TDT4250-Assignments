@@ -1,36 +1,32 @@
 package tdt4250.converter.api;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
-
 public class UnitConversion {
 
-	private static final String DEFAULT_MESSAGE = "Sorry, unit(s) are not supported ";
+	private UnitMap unitMap;
 	
-	
-	public UnitConversionResult convert(String initialUnit, String value, String targetUnit, String q) {
-		StringBuilder messages = new StringBuilder();
-		URI link = null;
-		boolean success = false;
-		Unit u = 
+	public UnitConversion(Unit... units) {
+		this.unitMap = new UnitMap();
 		
-		for (Unit u : units) {
-			UnitConversionResult result = u.convert(value);
-			if (result.isSuccess()) {
-				messages.append(result.getMessage());
-				messages.append("(" + u.getUnit() + ")\n");
-				success = true;
-				if (link == null) {
-					link = result.getLink();
-				}
-			}
+		for (Unit unit : units) {
+			addUnit(unit);
 		}
-		if (messages.length() == 0) {
-			messages.append(DEFAULT_MESSAGE);
-		}
-		return new UnitConversionResult(success, messages.toString(), link);
+	}
+	
+	public void addUnit(Unit unit) {
+		unitMap.putUnitsFrom(unit);
+	}
+	
+	public void removeUnit(Unit unit) {
+		unitMap.removeUnitsFrom(unit);
+	}
+	
+	public Unit getUnitBySymbol(String unit) {
+		return unitMap.get(unit);
+	}
+	
+	
+	public UnitConversionResult convert(Unit initialUnit, Unit targetUnit, String value) {
+		UnitConversionResult result = new UnitConversionResult(initialUnit.convert(value, targetUnit), initialUnit, targetUnit);
+		return result;
 	}
 }

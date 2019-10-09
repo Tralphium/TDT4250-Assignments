@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.util" increment="1570393183083">
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.util" increment="1570622059502">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="tdt4250.converter.util"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" value="0.0.0.201910062019" type="Version"/>
+      <attribute name="version" value="0.0.0.201910091154" type="Version"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
-      <attribute name="bundle-version" value="0.0.0.201910062019" type="Version"/>
+      <attribute name="bundle-version" value="0.0.0.201910091154" type="Version"/>
       <attribute name="osgi.wiring.bundle" value="tdt4250.converter.util"/>
     </capability>
     <capability namespace="osgi.wiring.host">
-      <attribute name="bundle-version" value="0.0.0.201910062019" type="Version"/>
+      <attribute name="bundle-version" value="0.0.0.201910091154" type="Version"/>
       <attribute name="osgi.wiring.host" value="tdt4250.converter.util"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="4023" type="Long"/>
+      <attribute name="size" value="4020" type="Long"/>
       <attribute name="url" value="generated/tdt4250.converter.util.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="AF7DEA9C553BA2B3A16DD600BA6686CFD7721311AB9D11BFAEBF361E058ADFCA"/>
+      <attribute name="osgi.content" value="0644B647BF75DBE9463335C446E53DEA74A1855EABF016E4E1C63D7A2B4BA877"/>
     </capability>
     <capability namespace="bndtools.workspace">
       <attribute name="bndtools.workspace" value="file:/C:/Users/Alexander/unit-conversion-ws"/>

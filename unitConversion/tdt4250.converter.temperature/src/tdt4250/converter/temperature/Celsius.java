@@ -33,8 +33,8 @@ public class Celsius extends UnitConverter implements Unit {
 	}
 
 	@Override
-	public String convert(String value, String targetUnit) {
-		if (targetUnit.toLowerCase() == "k") {
+	public String convert(String value, Unit targetUnit) {
+		if (targetUnit.getUnitSymbol() == "k") {
 			return toKelvin(value);
 		} else {
 			return fromKelvin(value);

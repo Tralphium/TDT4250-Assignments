@@ -5,11 +5,11 @@ import org.osgi.annotation.versioning.ConsumerType;
 @ConsumerType
 public class UnitConversionResult {
 
-	private final String value;
-	private final Unit initialUnit;
-	private final Unit targetUnit;
-	private final String result;
-	private final boolean success;
+	public final String value;
+	public final Unit initialUnit;
+	public final Unit targetUnit;
+	public final String result;
+	public final boolean success;
 	
 	public UnitConversionResult(String value, Unit initialUnit, String result, Unit targetUnit, boolean success) {
 		this.value = value;

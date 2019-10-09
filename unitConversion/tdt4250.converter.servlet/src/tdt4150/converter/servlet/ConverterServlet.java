@@ -2,9 +2,7 @@ package tdt4150.converter.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -17,9 +15,6 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardServletPattern;
-import org.osgi.service.log.Logger;
-import org.osgi.service.log.LoggerFactory;
-
 import tdt4250.converter.api.Unit;
 import tdt4250.converter.api.UnitConversion;
 import tdt4250.converter.api.UnitConversionResult;
@@ -30,6 +25,10 @@ import tdt4250.converter.api.UnitConversionResult;
 public class ConverterServlet extends HttpServlet implements Servlet{
 	
 	private static final long serialVersionUID = 1L;
+	
+	private static final String VALUE_PARAM = "v";
+	private static final String FROM_PARAM = "from";
+	private static final String TO_PARAM = "to";
 	
 	private UnitConversion unitConversion = new UnitConversion();
 	
@@ -48,39 +47,53 @@ public class ConverterServlet extends HttpServlet implements Servlet{
 		unitConversion.removeUnit(unit);
 	}
 	
-	@Reference(cardinality = ReferenceCardinality.OPTIONAL)
-	private volatile LoggerFactory loggerFactory;
-	
-	private Logger getLogger() {
-		if (loggerFactory != null) {
-			return loggerFactory.getLogger(ConverterServlet.class);
-		}
-		return null;
-	}
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<String> segments = new ArrayList<>();
-		String path = request.getPathTranslated(); 
-		Logger logger = getLogger();
-		logger.info("Received request for " + path);
-		if (path != null) {
-			segments.addAll(Arrays.asList(path.split("\\/")));
-		}
-		if (segments.size() > 0 && segments.get(0).length() == 0) {
-			segments.remove(0);
-		}
-		if (segments.size() > 3) {
-			response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, "Request must contain max 3 path segments");
+		Map<String, String[]> parameterMap = request.getParameterMap();
+		if (!parameterMap.containsKey(VALUE_PARAM)
+				|| !parameterMap.containsKey(FROM_PARAM)
+				|| !parameterMap.containsKey(TO_PARAM)) {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST,
+					"Request must contain all three parameters: "
+							+ VALUE_PARAM + ", " + FROM_PARAM + " and " + TO_PARAM);
 			return;
 		}
-		String q = request.getParameter("q");
-		UnitConversionResult result = unitConversion.convert(segments.get(0), segments.get(1), segments.get(2), q);
-		logger.info("Conversion result " + (result.isSuccess() ? "succeeded" : "failed"));
+
+		String value = request.getParameter(VALUE_PARAM);
+		Unit fromUnit = parseUnitSymbol(request.getParameter(FROM_PARAM), response);
+		Unit toUnit = parseUnitSymbol(request.getParameter(TO_PARAM), response);
+		if (fromUnit == null || toUnit == null)
+			return;
+
+		UnitConversionResult result = unitConversion.convert(fromUnit, toUnit, value);
+		sendResponse(result, response);
+	}
+
+	private void sendResponse(UnitConversionResult result, HttpServletResponse response) throws IOException {
+		if (!result.success) {
+			response.sendError(HttpServletResponse.SC_NOT_FOUND,
+					"Could not convert between " + result.initialUnit.getUnitSymbol() + " and " + result.targetUnit.getUnitSymbol());
+		}
+
 		response.setContentType("text/plain");
 		PrintWriter writer = response.getWriter();
-		if (result.getLink() != null) {
-			writer.print(result.getLink());
-		}
-		writer.print(result.getMessage());
+		writer.println("--- Conversion from " + result.initialUnit.getUnitSymbol() + " to " + result.targetUnit.getUnitSymbol() + " ---");
+		writer.println(result.value + " " + result.initialUnit + " = " + result.result + " " + result.targetUnit);
+		
 	}
+
+	private Unit parseUnitSymbol(String unitParam, HttpServletResponse response) throws IOException {
+		unitParam = unitParam.trim();
+		if (unitParam.length() != 1) {
+			throw new IllegalArgumentException(
+					"Cannot convert a unit with a symbol of more than one character: '" + unitParam + "'");
+		}
+
+		Unit unit = unitConversion.getUnitBySymbol(unitParam);
+		if (unit == null) {
+			response.sendError(HttpServletResponse.SC_NOT_FOUND,
+					"No registered unit converter for the unit symbol " + unitParam);
+		}
+		return unit;
+	}
+	
 }

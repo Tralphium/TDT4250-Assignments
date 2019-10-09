@@ -15,8 +15,19 @@ public class UnitMap {
 	}
 	
 	public void putUnitsFrom(Unit unit) {
-		for (Unit newUnit : unit.getValidUnits()) {
-			String unitSymbol = unit.getUnitSymbol();
+		for (Unit validUnit : unit.getValidUnits()) {
+			String unitSymbol = validUnit.getUnitSymbol();
+			if (unitMap.containsKey(unitSymbol)) {
+				throw new IllegalArgumentException("Allready registered");
+			}
+			unitMap.put(unitSymbol, validUnit);
+		}
+	}
+	
+	public void removeUnitsFrom(Unit unit) {
+		for (Unit validUnit : unit.getValidUnits()) {
+			String unitSymbol = validUnit.getUnitSymbol();
+			unitMap.remove(unitSymbol);
 		}
 	}
 

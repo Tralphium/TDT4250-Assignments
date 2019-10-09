@@ -15,7 +15,7 @@ public abstract class UnitConverterApi implements Unit {
 	public abstract String getUnitSymbol();
 
 	@Override
-	public abstract String convert(String value, String targetUnit);
+	public abstract String convert(String value, Unit targetUnit);
 
 	@Override
 	public Collection<Unit> getValidUnits() {

@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.api" increment="1570622058920">
+<repository xmlns="http://www.osgi.org/xmlns/repository/v1.0.0" name="tdt4250.converter.api" increment="1570634116585">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="tdt4250.converter.api"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" value="1.0.0.201910091154" type="Version"/>
+      <attribute name="version" value="1.0.0.201910091515" type="Version"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
-      <attribute name="bundle-version" value="1.0.0.201910091154" type="Version"/>
+      <attribute name="bundle-version" value="1.0.0.201910091515" type="Version"/>
       <attribute name="osgi.wiring.bundle" value="tdt4250.converter.api"/>
     </capability>
     <capability namespace="osgi.wiring.host">
-      <attribute name="bundle-version" value="1.0.0.201910091154" type="Version"/>
+      <attribute name="bundle-version" value="1.0.0.201910091515" type="Version"/>
       <attribute name="osgi.wiring.host" value="tdt4250.converter.api"/>
     </capability>
     <capability namespace="osgi.wiring.package">
@@ -19,10 +19,10 @@
       <attribute name="osgi.wiring.package" value="tdt4250.converter.api"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="size" value="8612" type="Long"/>
+      <attribute name="size" value="8607" type="Long"/>
       <attribute name="url" value="generated/tdt4250.converter.api.jar"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
-      <attribute name="osgi.content" value="9777615882F189DB26261BB199A8A986B77A9C1BFB3C7A46F03B67166D09DDFF"/>
+      <attribute name="osgi.content" value="2BDA90EB77E27243B9ED813C52DC93FE5BFD28E5D75EA40AFCECB545E840434C"/>
     </capability>
     <capability namespace="bndtools.workspace">
       <attribute name="bndtools.workspace" value="file:/C:/Users/Alexander/unit-conversion-ws"/>

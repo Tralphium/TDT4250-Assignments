@@ -91,7 +91,7 @@ public class ConverterServlet extends HttpServlet implements Servlet{
 		Unit unit = unitConversion.getUnitBySymbol(unitParam);
 		if (unit == null) {
 			response.sendError(HttpServletResponse.SC_NOT_FOUND,
-					"No registered unit converter for the unit symbol " + unitParam);
+					"No registered unit " + unitParam.toUpperCase());
 		}
 		return unit;
 	}

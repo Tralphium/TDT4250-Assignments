@@ -8,16 +8,12 @@ import tdt4250.converter.util.UnitConverter;
 
 @Component(
 		property = {
-				UnitConverter.UNIT_NAME_PROP + "=fahrenheit",
+				UnitConverter.UNIT_NAME_PROP + "=f",
 				UnitConverter.UNIT_TYPE_PROP + "=temperature"
 		})
 
 
 public class Fahrenheit extends UnitConverter implements Unit {
-	
-	public Fahrenheit(Unit[] validUnits) {
-		super(validUnits);
-	}
 	
 	public String toKelvin(String value) {
 		return String.valueOf((Float.valueOf(value) - 32) * (5/9) + 275.15);
@@ -33,7 +29,7 @@ public class Fahrenheit extends UnitConverter implements Unit {
 	}
 
 	@Override
-	public String convert(String value, Unit targetUnit) {
+	public String convert(Unit initialUnit, Unit targetUnit, String value) {
 		if (targetUnit.getUnitSymbol() == "k") {
 			return toKelvin(value);
 		} else {

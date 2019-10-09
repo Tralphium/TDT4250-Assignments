@@ -26,7 +26,7 @@ public class UnitConversion {
 	
 	
 	public UnitConversionResult convert(Unit initialUnit, Unit targetUnit, String value) {
-		UnitConversionResult result = new UnitConversionResult(initialUnit.convert(value, targetUnit), initialUnit, targetUnit);
+		UnitConversionResult result = new UnitConversionResult(initialUnit.convert(initialUnit, targetUnit, value), initialUnit, targetUnit);
 		return result;
 	}
 }

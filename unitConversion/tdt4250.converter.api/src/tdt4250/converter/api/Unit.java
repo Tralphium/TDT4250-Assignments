@@ -7,7 +7,7 @@ import org.osgi.annotation.versioning.ProviderType;
 @ProviderType
 public interface Unit {
 	String getUnitSymbol();
-	String convert(String value, Unit targetUnit);
+	String convert(Unit initialUnit, Unit targetUnit, String value);
 	
 	Collection<Unit> getValidUnits();
 

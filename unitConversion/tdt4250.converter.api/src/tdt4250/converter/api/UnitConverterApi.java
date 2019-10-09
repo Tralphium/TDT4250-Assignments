@@ -1,25 +1,24 @@
 package tdt4250.converter.api;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 public abstract class UnitConverterApi implements Unit {
-	private final Collection<Unit> validUnits;
-
-	public UnitConverterApi(Unit[] validUnits) {
-		this.validUnits = Collections.unmodifiableCollection(Arrays.asList(validUnits));
-	}
+	private final Collection<Unit> validUnits = new ArrayList<>();
 	
 	@Override
 	public abstract String getUnitSymbol();
 
 	@Override
-	public abstract String convert(String value, Unit targetUnit);
+	public abstract String convert(Unit initialUnit, Unit targetUnit, String value);
 
 	@Override
 	public Collection<Unit> getValidUnits() {
 		return validUnits;
+	}
+	
+	public void addValidUnit(Unit unit) {
+		validUnits.add(unit);
 	}
 	
 	protected boolean validCombination(Unit unit1, Unit unit2) {

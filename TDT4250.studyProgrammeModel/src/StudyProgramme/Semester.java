@@ -17,7 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link StudyProgramme.Semester#getNumber <em>Number</em>}</li>
  *   <li>{@link StudyProgramme.Semester#getCourseList <em>Course List</em>}</li>
- *   <li>{@link StudyProgramme.Semester#getSpecialized <em>Specialized</em>}</li>
+ *   <li>{@link StudyProgramme.Semester#getCourseGroups <em>Course Groups</em>}</li>
+ *   <li>{@link StudyProgramme.Semester#getTotalCredits <em>Total Credits</em>}</li>
+ *   <li>{@link StudyProgramme.Semester#getSeason <em>Season</em>}</li>
+ *   <li>{@link StudyProgramme.Semester#getCreditConstraint <em>Credit Constraint</em>}</li>
  * </ul>
  *
  * @see StudyProgramme.StudyProgrammePackage#getSemester()
@@ -48,37 +51,93 @@ public interface Semester extends EObject {
 	void setNumber(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Course List</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Course List</b></em>' reference list.
 	 * The list contents are of type {@link StudyProgramme.Course}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Course List</em>' containment reference list.
+	 * @return the value of the '<em>Course List</em>' reference list.
 	 * @see StudyProgramme.StudyProgrammePackage#getSemester_CourseList()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Course> getCourseList();
 
 	/**
-	 * Returns the value of the '<em><b>Specialized</b></em>' reference.
+	 * Returns the value of the '<em><b>Course Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link StudyProgramme.CourseGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialized</em>' reference.
-	 * @see #setSpecialized(SpecializedSemester)
-	 * @see StudyProgramme.StudyProgrammePackage#getSemester_Specialized()
+	 * @return the value of the '<em>Course Groups</em>' containment reference list.
+	 * @see StudyProgramme.StudyProgrammePackage#getSemester_CourseGroups()
+	 * @model containment="true" required="true" upper="2"
+	 * @generated
+	 */
+	EList<CourseGroup> getCourseGroups();
+
+	/**
+	 * Returns the value of the '<em><b>Total Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Total Credits</em>' attribute.
+	 * @see #setTotalCredits(float)
+	 * @see StudyProgramme.StudyProgrammePackage#getSemester_TotalCredits()
 	 * @model
 	 * @generated
 	 */
-	SpecializedSemester getSpecialized();
+	float getTotalCredits();
 
 	/**
-	 * Sets the value of the '{@link StudyProgramme.Semester#getSpecialized <em>Specialized</em>}' reference.
+	 * Sets the value of the '{@link StudyProgramme.Semester#getTotalCredits <em>Total Credits</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specialized</em>' reference.
-	 * @see #getSpecialized()
+	 * @param value the new value of the '<em>Total Credits</em>' attribute.
+	 * @see #getTotalCredits()
 	 * @generated
 	 */
-	void setSpecialized(SpecializedSemester value);
+	void setTotalCredits(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Season</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Season</em>' attribute.
+	 * @see #setSeason(String)
+	 * @see StudyProgramme.StudyProgrammePackage#getSemester_Season()
+	 * @model
+	 * @generated
+	 */
+	String getSeason();
+
+	/**
+	 * Sets the value of the '{@link StudyProgramme.Semester#getSeason <em>Season</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Season</em>' attribute.
+	 * @see #getSeason()
+	 * @generated
+	 */
+	void setSeason(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Credit Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Credit Constraint</em>' attribute.
+	 * @see #setCreditConstraint(int)
+	 * @see StudyProgramme.StudyProgrammePackage#getSemester_CreditConstraint()
+	 * @model dataType="StudyProgramme.credits"
+	 * @generated
+	 */
+	int getCreditConstraint();
+
+	/**
+	 * Sets the value of the '{@link StudyProgramme.Semester#getCreditConstraint <em>Credit Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Credit Constraint</em>' attribute.
+	 * @see #getCreditConstraint()
+	 * @generated
+	 */
+	void setCreditConstraint(int value);
 
 } // Semester

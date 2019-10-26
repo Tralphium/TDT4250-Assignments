@@ -5,6 +5,7 @@ package StudyProgramme.impl;
 import StudyProgramme.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -59,12 +60,41 @@ public class StudyProgrammeFactoryImpl extends EFactoryImpl implements StudyProg
 			case StudyProgrammePackage.PROGRAMME: return createProgramme();
 			case StudyProgrammePackage.COURSE: return createCourse();
 			case StudyProgrammePackage.SEMESTER: return createSemester();
-			case StudyProgrammePackage.PROGRAMME_COURSE: return createProgrammeCourse();
-			case StudyProgrammePackage.SPECIALIZATION: return createspecialization();
+			case StudyProgrammePackage.SPECIALIZATION: return createSpecialization();
 			case StudyProgrammePackage.COURSE_GROUP: return createCourseGroup();
-			case StudyProgrammePackage.SPECIALIZED_SEMESTER: return createSpecializedSemester();
+			case StudyProgrammePackage.DEPARTMENT: return createDepartment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case StudyProgrammePackage.CREDITS:
+				return createcreditsFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case StudyProgrammePackage.CREDITS:
+				return convertcreditsToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -107,19 +137,8 @@ public class StudyProgrammeFactoryImpl extends EFactoryImpl implements StudyProg
 	 * @generated
 	 */
 	@Override
-	public ProgrammeCourse createProgrammeCourse() {
-		ProgrammeCourseImpl programmeCourse = new ProgrammeCourseImpl();
-		return programmeCourse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public specialization createspecialization() {
-		specializationImpl specialization = new specializationImpl();
+	public Specialization createSpecialization() {
+		SpecializationImpl specialization = new SpecializationImpl();
 		return specialization;
 	}
 
@@ -140,9 +159,27 @@ public class StudyProgrammeFactoryImpl extends EFactoryImpl implements StudyProg
 	 * @generated
 	 */
 	@Override
-	public SpecializedSemester createSpecializedSemester() {
-		SpecializedSemesterImpl specializedSemester = new SpecializedSemesterImpl();
-		return specializedSemester;
+	public Department createDepartment() {
+		DepartmentImpl department = new DepartmentImpl();
+		return department;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer createcreditsFromString(EDataType eDataType, String initialValue) {
+		return (Integer)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertcreditsToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

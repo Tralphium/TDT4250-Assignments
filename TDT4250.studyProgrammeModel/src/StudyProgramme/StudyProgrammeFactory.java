@@ -49,22 +49,13 @@ public interface StudyProgrammeFactory extends EFactory {
 	Semester createSemester();
 
 	/**
-	 * Returns a new object of class '<em>Programme Course</em>'.
+	 * Returns a new object of class '<em>Specialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Programme Course</em>'.
+	 * @return a new object of class '<em>Specialization</em>'.
 	 * @generated
 	 */
-	ProgrammeCourse createProgrammeCourse();
-
-	/**
-	 * Returns a new object of class '<em>specialization</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>specialization</em>'.
-	 * @generated
-	 */
-	specialization createspecialization();
+	Specialization createSpecialization();
 
 	/**
 	 * Returns a new object of class '<em>Course Group</em>'.
@@ -76,13 +67,13 @@ public interface StudyProgrammeFactory extends EFactory {
 	CourseGroup createCourseGroup();
 
 	/**
-	 * Returns a new object of class '<em>Specialized Semester</em>'.
+	 * Returns a new object of class '<em>Department</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specialized Semester</em>'.
+	 * @return a new object of class '<em>Department</em>'.
 	 * @generated
 	 */
-	SpecializedSemester createSpecializedSemester();
+	Department createDepartment();
 
 	/**
 	 * Returns the package supported by this factory.

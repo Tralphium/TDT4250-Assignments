@@ -9,18 +9,15 @@ import StudyProgramme.StudyProgrammePackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link StudyProgramme.impl.CourseGroupImpl#getCoursesInGroup <em>Courses In Group</em>}</li>
- *   <li>{@link StudyProgramme.impl.CourseGroupImpl#getName <em>Name</em>}</li>
+ *   <li>{@link StudyProgramme.impl.CourseGroupImpl#getStatus <em>Status</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CourseGroupImpl extends MinimalEObjectImpl.Container implements CourseGroup {
 	/**
-	 * The cached value of the '{@link #getCoursesInGroup() <em>Courses In Group</em>}' containment reference list.
+	 * The cached value of the '{@link #getCoursesInGroup() <em>Courses In Group</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCoursesInGroup()
@@ -48,24 +45,24 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	protected EList<Course> coursesInGroup;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String STATUS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getStatus()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String status = STATUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,7 +91,7 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	@Override
 	public EList<Course> getCoursesInGroup() {
 		if (coursesInGroup == null) {
-			coursesInGroup = new EObjectContainmentEList<Course>(Course.class, this, StudyProgrammePackage.COURSE_GROUP__COURSES_IN_GROUP);
+			coursesInGroup = new EObjectResolvingEList<Course>(Course.class, this, StudyProgrammePackage.COURSE_GROUP__COURSES_IN_GROUP);
 		}
 		return coursesInGroup;
 	}
@@ -105,8 +102,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
+	public String getStatus() {
+		return status;
 	}
 
 	/**
@@ -115,25 +112,11 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @generated
 	 */
 	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setStatus(String newStatus) {
+		String oldStatus = status;
+		status = newStatus;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgrammePackage.COURSE_GROUP__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case StudyProgrammePackage.COURSE_GROUP__COURSES_IN_GROUP:
-				return ((InternalEList<?>)getCoursesInGroup()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgrammePackage.COURSE_GROUP__STATUS, oldStatus, status));
 	}
 
 	/**
@@ -146,8 +129,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		switch (featureID) {
 			case StudyProgrammePackage.COURSE_GROUP__COURSES_IN_GROUP:
 				return getCoursesInGroup();
-			case StudyProgrammePackage.COURSE_GROUP__NAME:
-				return getName();
+			case StudyProgrammePackage.COURSE_GROUP__STATUS:
+				return getStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,8 +148,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 				getCoursesInGroup().clear();
 				getCoursesInGroup().addAll((Collection<? extends Course>)newValue);
 				return;
-			case StudyProgrammePackage.COURSE_GROUP__NAME:
-				setName((String)newValue);
+			case StudyProgrammePackage.COURSE_GROUP__STATUS:
+				setStatus((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,8 +166,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 			case StudyProgrammePackage.COURSE_GROUP__COURSES_IN_GROUP:
 				getCoursesInGroup().clear();
 				return;
-			case StudyProgrammePackage.COURSE_GROUP__NAME:
-				setName(NAME_EDEFAULT);
+			case StudyProgrammePackage.COURSE_GROUP__STATUS:
+				setStatus(STATUS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -200,8 +183,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		switch (featureID) {
 			case StudyProgrammePackage.COURSE_GROUP__COURSES_IN_GROUP:
 				return coursesInGroup != null && !coursesInGroup.isEmpty();
-			case StudyProgrammePackage.COURSE_GROUP__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case StudyProgrammePackage.COURSE_GROUP__STATUS:
+				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -216,8 +199,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
+		result.append(" (status: ");
+		result.append(status);
 		result.append(')');
 		return result.toString();
 	}

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link StudyProgramme.Course#getName <em>Name</em>}</li>
  *   <li>{@link StudyProgramme.Course#getCode <em>Code</em>}</li>
  *   <li>{@link StudyProgramme.Course#getCredits <em>Credits</em>}</li>
+ *   <li>{@link StudyProgramme.Course#getLevel <em>Level</em>}</li>
  * </ul>
  *
  * @see StudyProgramme.StudyProgrammePackage#getCourse()
@@ -88,5 +89,27 @@ public interface Course extends EObject {
 	 * @generated
 	 */
 	void setCredits(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Level</em>' attribute.
+	 * @see #setLevel(String)
+	 * @see StudyProgramme.StudyProgrammePackage#getCourse_Level()
+	 * @model
+	 * @generated
+	 */
+	String getLevel();
+
+	/**
+	 * Sets the value of the '{@link StudyProgramme.Course#getLevel <em>Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Level</em>' attribute.
+	 * @see #getLevel()
+	 * @generated
+	 */
+	void setLevel(String value);
 
 } // Course

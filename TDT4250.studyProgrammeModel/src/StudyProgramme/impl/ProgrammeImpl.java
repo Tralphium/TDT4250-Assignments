@@ -3,10 +3,9 @@
 package StudyProgramme.impl;
 
 import StudyProgramme.Programme;
-import StudyProgramme.ProgrammeCourse;
 import StudyProgramme.Semester;
+import StudyProgramme.Specialization;
 import StudyProgramme.StudyProgrammePackage;
-import StudyProgramme.specialization;
 
 import java.util.Collection;
 
@@ -34,9 +33,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link StudyProgramme.impl.ProgrammeImpl#getName <em>Name</em>}</li>
  *   <li>{@link StudyProgramme.impl.ProgrammeImpl#getCode <em>Code</em>}</li>
- *   <li>{@link StudyProgramme.impl.ProgrammeImpl#getProgrammeCourse <em>Programme Course</em>}</li>
  *   <li>{@link StudyProgramme.impl.ProgrammeImpl#getProgrammeSemester <em>Programme Semester</em>}</li>
  *   <li>{@link StudyProgramme.impl.ProgrammeImpl#getProgrammeSpecializaton <em>Programme Specializaton</em>}</li>
+ *   <li>{@link StudyProgramme.impl.ProgrammeImpl#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,16 +82,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	protected String code = CODE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProgrammeCourse() <em>Programme Course</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProgrammeCourse()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ProgrammeCourse> programmeCourse;
-
-	/**
 	 * The cached value of the '{@link #getProgrammeSemester() <em>Programme Semester</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,7 +99,27 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<specialization> programmeSpecializaton;
+	protected EList<Specialization> programmeSpecializaton;
+
+	/**
+	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int DURATION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected int duration = DURATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,19 +192,6 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * @generated
 	 */
 	@Override
-	public EList<ProgrammeCourse> getProgrammeCourse() {
-		if (programmeCourse == null) {
-			programmeCourse = new EObjectContainmentEList<ProgrammeCourse>(ProgrammeCourse.class, this, StudyProgrammePackage.PROGRAMME__PROGRAMME_COURSE);
-		}
-		return programmeCourse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Semester> getProgrammeSemester() {
 		if (programmeSemester == null) {
 			programmeSemester = new EObjectContainmentEList<Semester>(Semester.class, this, StudyProgrammePackage.PROGRAMME__PROGRAMME_SEMESTER);
@@ -209,9 +205,9 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * @generated
 	 */
 	@Override
-	public EList<specialization> getProgrammeSpecializaton() {
+	public EList<Specialization> getProgrammeSpecializaton() {
 		if (programmeSpecializaton == null) {
-			programmeSpecializaton = new EObjectContainmentEList<specialization>(specialization.class, this, StudyProgrammePackage.PROGRAMME__PROGRAMME_SPECIALIZATON);
+			programmeSpecializaton = new EObjectContainmentEList<Specialization>(Specialization.class, this, StudyProgrammePackage.PROGRAMME__PROGRAMME_SPECIALIZATON);
 		}
 		return programmeSpecializaton;
 	}
@@ -222,10 +218,31 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * @generated
 	 */
 	@Override
+	public int getDuration() {
+		return duration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDuration(int newDuration) {
+		int oldDuration = duration;
+		duration = newDuration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgrammePackage.PROGRAMME__DURATION, oldDuration, duration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StudyProgrammePackage.PROGRAMME__PROGRAMME_COURSE:
-				return ((InternalEList<?>)getProgrammeCourse()).basicRemove(otherEnd, msgs);
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SEMESTER:
 				return ((InternalEList<?>)getProgrammeSemester()).basicRemove(otherEnd, msgs);
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SPECIALIZATON:
@@ -246,12 +263,12 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return getName();
 			case StudyProgrammePackage.PROGRAMME__CODE:
 				return getCode();
-			case StudyProgrammePackage.PROGRAMME__PROGRAMME_COURSE:
-				return getProgrammeCourse();
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SEMESTER:
 				return getProgrammeSemester();
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SPECIALIZATON:
 				return getProgrammeSpecializaton();
+			case StudyProgrammePackage.PROGRAMME__DURATION:
+				return getDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,17 +288,16 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case StudyProgrammePackage.PROGRAMME__CODE:
 				setCode((String)newValue);
 				return;
-			case StudyProgrammePackage.PROGRAMME__PROGRAMME_COURSE:
-				getProgrammeCourse().clear();
-				getProgrammeCourse().addAll((Collection<? extends ProgrammeCourse>)newValue);
-				return;
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SEMESTER:
 				getProgrammeSemester().clear();
 				getProgrammeSemester().addAll((Collection<? extends Semester>)newValue);
 				return;
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SPECIALIZATON:
 				getProgrammeSpecializaton().clear();
-				getProgrammeSpecializaton().addAll((Collection<? extends specialization>)newValue);
+				getProgrammeSpecializaton().addAll((Collection<? extends Specialization>)newValue);
+				return;
+			case StudyProgrammePackage.PROGRAMME__DURATION:
+				setDuration((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -301,14 +317,14 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case StudyProgrammePackage.PROGRAMME__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
-			case StudyProgrammePackage.PROGRAMME__PROGRAMME_COURSE:
-				getProgrammeCourse().clear();
-				return;
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SEMESTER:
 				getProgrammeSemester().clear();
 				return;
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SPECIALIZATON:
 				getProgrammeSpecializaton().clear();
+				return;
+			case StudyProgrammePackage.PROGRAMME__DURATION:
+				setDuration(DURATION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -326,12 +342,12 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case StudyProgrammePackage.PROGRAMME__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
-			case StudyProgrammePackage.PROGRAMME__PROGRAMME_COURSE:
-				return programmeCourse != null && !programmeCourse.isEmpty();
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SEMESTER:
 				return programmeSemester != null && !programmeSemester.isEmpty();
 			case StudyProgrammePackage.PROGRAMME__PROGRAMME_SPECIALIZATON:
 				return programmeSpecializaton != null && !programmeSpecializaton.isEmpty();
+			case StudyProgrammePackage.PROGRAMME__DURATION:
+				return duration != DURATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -350,6 +366,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		result.append(name);
 		result.append(", code: ");
 		result.append(code);
+		result.append(", duration: ");
+		result.append(duration);
 		result.append(')');
 		return result.toString();
 	}

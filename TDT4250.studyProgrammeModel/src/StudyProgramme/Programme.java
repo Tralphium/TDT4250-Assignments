@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link StudyProgramme.Programme#getName <em>Name</em>}</li>
  *   <li>{@link StudyProgramme.Programme#getCode <em>Code</em>}</li>
- *   <li>{@link StudyProgramme.Programme#getProgrammeCourse <em>Programme Course</em>}</li>
  *   <li>{@link StudyProgramme.Programme#getProgrammeSemester <em>Programme Semester</em>}</li>
  *   <li>{@link StudyProgramme.Programme#getProgrammeSpecializaton <em>Programme Specializaton</em>}</li>
+ *   <li>{@link StudyProgramme.Programme#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @see StudyProgramme.StudyProgrammePackage#getProgramme()
@@ -72,18 +72,6 @@ public interface Programme extends EObject {
 	void setCode(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Programme Course</b></em>' containment reference list.
-	 * The list contents are of type {@link StudyProgramme.ProgrammeCourse}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Programme Course</em>' containment reference list.
-	 * @see StudyProgramme.StudyProgrammePackage#getProgramme_ProgrammeCourse()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ProgrammeCourse> getProgrammeCourse();
-
-	/**
 	 * Returns the value of the '<em><b>Programme Semester</b></em>' containment reference list.
 	 * The list contents are of type {@link StudyProgramme.Semester}.
 	 * <!-- begin-user-doc -->
@@ -97,7 +85,7 @@ public interface Programme extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Programme Specializaton</b></em>' containment reference list.
-	 * The list contents are of type {@link StudyProgramme.specialization}.
+	 * The list contents are of type {@link StudyProgramme.Specialization}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Programme Specializaton</em>' containment reference list.
@@ -105,6 +93,28 @@ public interface Programme extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<specialization> getProgrammeSpecializaton();
+	EList<Specialization> getProgrammeSpecializaton();
+
+	/**
+	 * Returns the value of the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Duration</em>' attribute.
+	 * @see #setDuration(int)
+	 * @see StudyProgramme.StudyProgrammePackage#getProgramme_Duration()
+	 * @model
+	 * @generated
+	 */
+	int getDuration();
+
+	/**
+	 * Sets the value of the '{@link StudyProgramme.Programme#getDuration <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Duration</em>' attribute.
+	 * @see #getDuration()
+	 * @generated
+	 */
+	void setDuration(int value);
 
 } // Programme

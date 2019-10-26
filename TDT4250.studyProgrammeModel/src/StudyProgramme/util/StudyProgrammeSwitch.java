@@ -84,15 +84,9 @@ public class StudyProgrammeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StudyProgrammePackage.PROGRAMME_COURSE: {
-				ProgrammeCourse programmeCourse = (ProgrammeCourse)theEObject;
-				T result = caseProgrammeCourse(programmeCourse);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case StudyProgrammePackage.SPECIALIZATION: {
-				specialization specialization = (specialization)theEObject;
-				T result = casespecialization(specialization);
+				Specialization specialization = (Specialization)theEObject;
+				T result = caseSpecialization(specialization);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -102,9 +96,9 @@ public class StudyProgrammeSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StudyProgrammePackage.SPECIALIZED_SEMESTER: {
-				SpecializedSemester specializedSemester = (SpecializedSemester)theEObject;
-				T result = caseSpecializedSemester(specializedSemester);
+			case StudyProgrammePackage.DEPARTMENT: {
+				Department department = (Department)theEObject;
+				T result = caseDepartment(department);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,32 +152,17 @@ public class StudyProgrammeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Programme Course</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Specialization</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Programme Course</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Specialization</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProgrammeCourse(ProgrammeCourse object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>specialization</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>specialization</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casespecialization(specialization object) {
+	public T caseSpecialization(Specialization object) {
 		return null;
 	}
 
@@ -203,17 +182,17 @@ public class StudyProgrammeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Specialized Semester</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Department</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Specialized Semester</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Department</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSpecializedSemester(SpecializedSemester object) {
+	public T caseDepartment(Department object) {
 		return null;
 	}
 

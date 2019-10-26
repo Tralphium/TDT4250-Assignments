@@ -3,8 +3,8 @@
 package StudyProgramme.impl;
 
 import StudyProgramme.Course;
+import StudyProgramme.CourseGroup;
 import StudyProgramme.Semester;
-import StudyProgramme.SpecializedSemester;
 import StudyProgramme.StudyProgrammePackage;
 
 import java.util.Collection;
@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -33,7 +34,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link StudyProgramme.impl.SemesterImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link StudyProgramme.impl.SemesterImpl#getCourseList <em>Course List</em>}</li>
- *   <li>{@link StudyProgramme.impl.SemesterImpl#getSpecialized <em>Specialized</em>}</li>
+ *   <li>{@link StudyProgramme.impl.SemesterImpl#getCourseGroups <em>Course Groups</em>}</li>
+ *   <li>{@link StudyProgramme.impl.SemesterImpl#getTotalCredits <em>Total Credits</em>}</li>
+ *   <li>{@link StudyProgramme.impl.SemesterImpl#getSeason <em>Season</em>}</li>
+ *   <li>{@link StudyProgramme.impl.SemesterImpl#getCreditConstraint <em>Credit Constraint</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,7 +64,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	protected int number = NUMBER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCourseList() <em>Course List</em>}' containment reference list.
+	 * The cached value of the '{@link #getCourseList() <em>Course List</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCourseList()
@@ -70,14 +74,74 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	protected EList<Course> courseList;
 
 	/**
-	 * The cached value of the '{@link #getSpecialized() <em>Specialized</em>}' reference.
+	 * The cached value of the '{@link #getCourseGroups() <em>Course Groups</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecialized()
+	 * @see #getCourseGroups()
 	 * @generated
 	 * @ordered
 	 */
-	protected SpecializedSemester specialized;
+	protected EList<CourseGroup> courseGroups;
+
+	/**
+	 * The default value of the '{@link #getTotalCredits() <em>Total Credits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTotalCredits()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float TOTAL_CREDITS_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getTotalCredits() <em>Total Credits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTotalCredits()
+	 * @generated
+	 * @ordered
+	 */
+	protected float totalCredits = TOTAL_CREDITS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSeason() <em>Season</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeason()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SEASON_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSeason() <em>Season</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSeason()
+	 * @generated
+	 * @ordered
+	 */
+	protected String season = SEASON_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCreditConstraint() <em>Credit Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreditConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CREDIT_CONSTRAINT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCreditConstraint() <em>Credit Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreditConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected int creditConstraint = CREDIT_CONSTRAINT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,7 +193,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public EList<Course> getCourseList() {
 		if (courseList == null) {
-			courseList = new EObjectContainmentEList<Course>(Course.class, this, StudyProgrammePackage.SEMESTER__COURSE_LIST);
+			courseList = new EObjectResolvingEList<Course>(Course.class, this, StudyProgrammePackage.SEMESTER__COURSE_LIST);
 		}
 		return courseList;
 	}
@@ -140,25 +204,11 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 */
 	@Override
-	public SpecializedSemester getSpecialized() {
-		if (specialized != null && specialized.eIsProxy()) {
-			InternalEObject oldSpecialized = (InternalEObject)specialized;
-			specialized = (SpecializedSemester)eResolveProxy(oldSpecialized);
-			if (specialized != oldSpecialized) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StudyProgrammePackage.SEMESTER__SPECIALIZED, oldSpecialized, specialized));
-			}
+	public EList<CourseGroup> getCourseGroups() {
+		if (courseGroups == null) {
+			courseGroups = new EObjectContainmentEList<CourseGroup>(CourseGroup.class, this, StudyProgrammePackage.SEMESTER__COURSE_GROUPS);
 		}
-		return specialized;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SpecializedSemester basicGetSpecialized() {
-		return specialized;
+		return courseGroups;
 	}
 
 	/**
@@ -167,11 +217,67 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 */
 	@Override
-	public void setSpecialized(SpecializedSemester newSpecialized) {
-		SpecializedSemester oldSpecialized = specialized;
-		specialized = newSpecialized;
+	public float getTotalCredits() {
+		return totalCredits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTotalCredits(float newTotalCredits) {
+		float oldTotalCredits = totalCredits;
+		totalCredits = newTotalCredits;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgrammePackage.SEMESTER__SPECIALIZED, oldSpecialized, specialized));
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgrammePackage.SEMESTER__TOTAL_CREDITS, oldTotalCredits, totalCredits));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getSeason() {
+		return season;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSeason(String newSeason) {
+		String oldSeason = season;
+		season = newSeason;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgrammePackage.SEMESTER__SEASON, oldSeason, season));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getCreditConstraint() {
+		return creditConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCreditConstraint(int newCreditConstraint) {
+		int oldCreditConstraint = creditConstraint;
+		creditConstraint = newCreditConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyProgrammePackage.SEMESTER__CREDIT_CONSTRAINT, oldCreditConstraint, creditConstraint));
 	}
 
 	/**
@@ -182,8 +288,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StudyProgrammePackage.SEMESTER__COURSE_LIST:
-				return ((InternalEList<?>)getCourseList()).basicRemove(otherEnd, msgs);
+			case StudyProgrammePackage.SEMESTER__COURSE_GROUPS:
+				return ((InternalEList<?>)getCourseGroups()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,9 +306,14 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return getNumber();
 			case StudyProgrammePackage.SEMESTER__COURSE_LIST:
 				return getCourseList();
-			case StudyProgrammePackage.SEMESTER__SPECIALIZED:
-				if (resolve) return getSpecialized();
-				return basicGetSpecialized();
+			case StudyProgrammePackage.SEMESTER__COURSE_GROUPS:
+				return getCourseGroups();
+			case StudyProgrammePackage.SEMESTER__TOTAL_CREDITS:
+				return getTotalCredits();
+			case StudyProgrammePackage.SEMESTER__SEASON:
+				return getSeason();
+			case StudyProgrammePackage.SEMESTER__CREDIT_CONSTRAINT:
+				return getCreditConstraint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,8 +334,18 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				getCourseList().clear();
 				getCourseList().addAll((Collection<? extends Course>)newValue);
 				return;
-			case StudyProgrammePackage.SEMESTER__SPECIALIZED:
-				setSpecialized((SpecializedSemester)newValue);
+			case StudyProgrammePackage.SEMESTER__COURSE_GROUPS:
+				getCourseGroups().clear();
+				getCourseGroups().addAll((Collection<? extends CourseGroup>)newValue);
+				return;
+			case StudyProgrammePackage.SEMESTER__TOTAL_CREDITS:
+				setTotalCredits((Float)newValue);
+				return;
+			case StudyProgrammePackage.SEMESTER__SEASON:
+				setSeason((String)newValue);
+				return;
+			case StudyProgrammePackage.SEMESTER__CREDIT_CONSTRAINT:
+				setCreditConstraint((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,8 +365,17 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 			case StudyProgrammePackage.SEMESTER__COURSE_LIST:
 				getCourseList().clear();
 				return;
-			case StudyProgrammePackage.SEMESTER__SPECIALIZED:
-				setSpecialized((SpecializedSemester)null);
+			case StudyProgrammePackage.SEMESTER__COURSE_GROUPS:
+				getCourseGroups().clear();
+				return;
+			case StudyProgrammePackage.SEMESTER__TOTAL_CREDITS:
+				setTotalCredits(TOTAL_CREDITS_EDEFAULT);
+				return;
+			case StudyProgrammePackage.SEMESTER__SEASON:
+				setSeason(SEASON_EDEFAULT);
+				return;
+			case StudyProgrammePackage.SEMESTER__CREDIT_CONSTRAINT:
+				setCreditConstraint(CREDIT_CONSTRAINT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -263,8 +393,14 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return number != NUMBER_EDEFAULT;
 			case StudyProgrammePackage.SEMESTER__COURSE_LIST:
 				return courseList != null && !courseList.isEmpty();
-			case StudyProgrammePackage.SEMESTER__SPECIALIZED:
-				return specialized != null;
+			case StudyProgrammePackage.SEMESTER__COURSE_GROUPS:
+				return courseGroups != null && !courseGroups.isEmpty();
+			case StudyProgrammePackage.SEMESTER__TOTAL_CREDITS:
+				return totalCredits != TOTAL_CREDITS_EDEFAULT;
+			case StudyProgrammePackage.SEMESTER__SEASON:
+				return SEASON_EDEFAULT == null ? season != null : !SEASON_EDEFAULT.equals(season);
+			case StudyProgrammePackage.SEMESTER__CREDIT_CONSTRAINT:
+				return creditConstraint != CREDIT_CONSTRAINT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -281,6 +417,12 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (number: ");
 		result.append(number);
+		result.append(", totalCredits: ");
+		result.append(totalCredits);
+		result.append(", season: ");
+		result.append(season);
+		result.append(", creditConstraint: ");
+		result.append(creditConstraint);
 		result.append(')');
 		return result.toString();
 	}

@@ -11,7 +11,7 @@
       <package
             uri="http://TDT4250/studyProgrammeModel"
             class="StudyProgramme.StudyProgrammePackage"
-            genModel="model/program.genmodel"/>
+            genModel="model/programme.genmodel"/>
    </extension>
 
 </plugin>

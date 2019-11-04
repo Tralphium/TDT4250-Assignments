@@ -1,0 +1,105 @@
+[comment encoding = UTF-8 /]
+[module generate('/TDT4250.studyProgrammeModel/model/programme.ecore', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public generateElement(department : Department)]
+[comment @main/]
+[file (department.name.concat('.html'), false, 'UTF-8')]
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>[department.name/] Courses</title>
+<style>
+
+body {
+  font-family:"open sans", arial, sans-serif;
+  color: #333;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+div { 
+  padding: 14px; 
+}
+
+tr {
+  text-align: left;
+}
+
+table {
+  width: 620px;
+  border: 1px solid #F7F7F7;
+  background-color: #F7f7f7;
+}
+
+tr:nth-child(even) {background: #FAFAFA}
+
+h3 {
+  font-size: 20px;
+  color: #888;
+  margin: 0px;
+}
+
+h4 {
+  font-size: 17px;
+  color: #333;
+  margin: 0px;
+}
+
+.table-header {
+  border: 1px solid #F7F7F7;
+  background-color:#F7F7F7;
+
+}
+</style>
+</head>
+
+<body>
+<h1>Datateknologi</h1>
+<h2> [department.programmes.name/] </h2>
+
+[for (programme : Programme | department.programmes)]
+	[generatePage(programme)/]
+	<hline/><br/>
+[/for]
+
+</body>
+</html>
+[/file]
+[/template]
+
+[template public generatePage(programme: Programme)]
+
+	[for(semester : Semester | programme.programmeSemester)]
+	<div class="semester--block">
+		[if (semester.season.toString()='Fall')]
+			<h2>[semester.number/2/]. year</h2>
+			<hr>
+			[if (semester.number=5)]
+				<h2>[programme.programmeSpecializaton.name/]</h2>
+				<hr>
+			[/if]
+		[/if]
+		<br>
+		<h3>[semester.season/]</h3>
+		<h4>[semester.number/2/]. year [programme.name/] - 5-years</h4>
+		<table>
+			<tr class="table-header">
+    			<th>Emnekode</th>
+    			<th>Emnenavn</th>
+    			<th>SP</th>
+				<th>Status</th>
+  			</tr>
+			[for (course : Course | semester.courseList)]
+			<tr>
+				<td class="emnekode"><a href="http://www.ntnu.no/studier/emner/[course.code.toString()/]">[course.code /]</a> </td>
+				<td>[course.name /] </td>
+				<td>[course.credits /]</td>
+				<td>[course.level/]</td> 
+			</tr>
+			[/for]
+		</table>
+	</div>
+	[/for]
+[/template]
